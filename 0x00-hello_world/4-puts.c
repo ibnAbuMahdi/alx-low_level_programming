@@ -2,7 +2,8 @@
 
 /**
  * main - This function prints text using the stdio function puts()
- * return - returns 0, always
+ * Description: This function prints the hardcoded strings
+ * Return: returns 0, always
  */
 int main(void)
 {
