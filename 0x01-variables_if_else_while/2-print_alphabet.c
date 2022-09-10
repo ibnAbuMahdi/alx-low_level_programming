@@ -18,7 +18,7 @@ int main(void)
 		c = c + 1;
 		if (c == 'z' + 1)
 		{
-			putchar("\n");
+			putchar((int)"\n");
 		}
 	}
 	return (0);
