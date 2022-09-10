@@ -18,6 +18,7 @@ int main(void)
 		c = c + 1;
 		if (c == 'z' + 0)
 		{
+			putchar(c);
 			c = 'A' + 0;
 		}
 		if (c == 'Z' + 1)
