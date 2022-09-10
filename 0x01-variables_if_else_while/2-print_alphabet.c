@@ -12,13 +12,13 @@ int main(void)
 	 */
 	char c = 'a';
 
-	while (c != 'z')
+	while (c != 'z' + 1)
 	{
-		putchar("%c", (int)c);
+		putchar(c);
 		c = c + 1;
-		if (c == 'z')
+		if (c == 'z' + 1)
 		{
-			putchar("%c\n", (int)c);
+			putchar("\n");
 		}
 	}
 	return (0);
