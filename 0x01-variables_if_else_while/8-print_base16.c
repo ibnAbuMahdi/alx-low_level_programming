@@ -12,7 +12,7 @@ int main(void)
 	 */
 	int c = '0';
 
-	while (c < 'f')
+	while (c < 'g')
 	{
 		putchar(c);
 		c = c + 1;
@@ -20,7 +20,7 @@ int main(void)
 		{
 			c = 'a';
 		}
-		if (c == 'f')
+		if (c == 'g')
 		{
 			putchar('\n');
 		}
