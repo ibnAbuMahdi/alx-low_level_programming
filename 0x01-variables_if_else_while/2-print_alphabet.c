@@ -14,11 +14,11 @@ int main(void)
 
 	while (c != 'z')
 	{
-		puts("%c", c);
+		putchar("%c", c);
 		c = c + 1;
 		if (c == 'z')
 		{
-			puts("%c\n", c);
+			putchar("%c\n", c);
 		}
 	}
 	return (0);
