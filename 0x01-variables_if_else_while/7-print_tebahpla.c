@@ -10,15 +10,15 @@ int main(void)
 	/*
 	 *@c: is a character variable
 	 */
-	char c = 'a';
+	int c = 'z';
 
-	while (c != 'z' + 1)
+	while (c != 'a' - 1)
 	{
 		putchar(c);
-		c = c + 1;
-		if (c == 'z' + 1)
+		c = c - 1;
+		if (c == 'a' - 1)
 		{
-			putchar('\n' + 0);
+			putchar('\n');
 		}
 	}
 	return (0);
