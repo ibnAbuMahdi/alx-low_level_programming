@@ -14,11 +14,11 @@ int main(void)
 
 	while (c < 10)
 	{
-		putchar(c);
+		printf("%d", c);
 		c = c + 1;
 		if (c == 10)
 		{
-			putchar('\n' + 0);
+			printf("\n");
 		}
 	}
 	return (0);
