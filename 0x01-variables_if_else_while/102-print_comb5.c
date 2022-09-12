@@ -22,11 +22,11 @@ int main(void)
 
 			for (; a < '9' + 1; a++)
 			{
-				int d = '1';
+				int d = '0';
 
 				for (; d < '9' + 1; d++)
 				{
-					if (b < d && c <= a)
+					if ((b < d && c <= a) || (b <= d && c < a) || (b > d && c < a))
 					{
 						putchar(c);
 						putchar(b);
