@@ -15,7 +15,7 @@ void print_alphabet(void)
 	 * @i: the loop counter
 	 */
 	char c[] = "abcdefghijklmnopqrstuvwxyz\n";
-
+	int i = 0;
 	for (; i < 27; i++)
 	{
 		_putchar(c[i]);
