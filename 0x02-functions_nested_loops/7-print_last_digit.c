@@ -14,6 +14,7 @@ int print_last_digit(int n)
 	 * @r: the remainder to be returned
 	 */
 	int r;
+
 	if (n > 0)
 	{
 		r = n % 10;
