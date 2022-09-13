@@ -1,4 +1,7 @@
 #include <unistd.h>
+#ifndef main_h
+#include "main.h"
+#endif
 
 /**
  * print_alphabet_x10 - prints the alphabets to the std output
