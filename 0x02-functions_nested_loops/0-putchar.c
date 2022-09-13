@@ -1,5 +1,7 @@
 #include <unistd.h>
+#ifndef main_h
 #include "main.h"
+#endif
 /**
  * main - program entry point
  * Return: always 0
