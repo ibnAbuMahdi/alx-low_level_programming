@@ -1,7 +1,5 @@
 #include <unistd.h>
-#ifndef _putchar
-#include "main.h"
-#endif
+
 /**
  * print_alphabet_x10 - prints the alphabets to the std output
  * Return: always 0
@@ -22,7 +20,7 @@ void print_alphabet_x10(void)
 	{
 		int j = 0;
 
-		for(; j < 27; j++)
+		for (; j < 27; j++)
 		{
 			_putchar(c[j]);
 		}
