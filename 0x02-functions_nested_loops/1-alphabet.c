@@ -3,15 +3,22 @@
 #include "main.h"
 #endif
 /**
- * main - program entry point
+ * print_alphabet - prints the alphabets to the std output
  * Return: always 0
  */
 
-int main(void)
+int print_alphabet(void)
 {
 	/**
-	 * print_alphabet - prints the alphabets
+	 * _putchar - print character to the std output
+	 * @c: buffer for the alphabets
+	 * @i: the loop counter
 	 */
-	print_alphabet();
+	char c[] = "abcdefghijklmnopqrstuvwxyz\n";
+
+	for (; i < 27; i++)
+	{
+		_putchar(c[i]);
+	}
 	return (0);
 }
