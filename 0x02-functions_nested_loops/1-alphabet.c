@@ -20,5 +20,4 @@ void print_alphabet(void)
 	{
 		_putchar(c[i]);
 	}
-	return (0);
 }
