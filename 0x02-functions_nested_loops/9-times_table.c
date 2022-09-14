@@ -10,11 +10,14 @@ void times_table(void)
 	/**
 	 * _putchar - print character to the std output
 	 * @r: row counter
-	 * @c: column counter
 	 */
-	for (int r = 0; r < 10; r++)
+	int r;
+
+	for (r = 0; r < 10; r++)
 	{
-		for (int c = 0; c < 10; r++)
+		int c;
+
+		for (c = 0; c < 10; r++)
 		{
 			int m, f, s;
 
@@ -42,7 +45,6 @@ void times_table(void)
 			}
 			_putchar(',');
 			_putchar(' ');
-		}
-		_putchar('\n');
+		} _putchar('\n');
 	}
 }
