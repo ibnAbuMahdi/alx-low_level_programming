@@ -24,7 +24,7 @@ void times_table(void)
 			m = r * c;
 			f = m / 10;
 			s = m % 10;
-			print_chars(m, f, s);
+			print_chars(m, f, s, c);
 			if (c != 9)
 			{
 				_putchar(',');
@@ -39,8 +39,9 @@ void times_table(void)
  * @m: the multiplication result
  * @f: the first digit of the result
  * @s: the second digit of the result
+ * @c: the column number
  */
-void print_chars(int m, int f, int s)
+void print_chars(int m, int f, int s, int c)
 {
 	if (m == 0 && c > 0)
 	{
