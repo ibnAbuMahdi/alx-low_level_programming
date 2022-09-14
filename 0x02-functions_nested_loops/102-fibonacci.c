@@ -13,9 +13,9 @@ int main(void)
 	 * @sum: sum of n1 and n2
 	 */
 	int c = 2;
-	int n1 = 1;
-	int n2 = 2;
-	int sum;
+	long int n1 = 1;
+	long int n2 = 2;
+	long int sum;
 
 	while (c < 51)
 	{
