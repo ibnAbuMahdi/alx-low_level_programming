@@ -16,11 +16,11 @@ void print_times_table(int n)
 	{
 		int r;
 
-		for (r = 0; r < 10; r++)
+		for (r = 0; r < n; r++)
 		{
 			int c;
 
-			for (c = 0; c < 10; c++)
+			for (c = 0; c < n; c++)
 			{
 				int m, f, s;
 
