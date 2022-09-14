@@ -28,7 +28,7 @@ void print_times_table(int n)
 				f = m / 10;
 				s = m % 10;
 				print_chars(m, f, s, c);
-				if (c != 9)
+				if (c != n)
 				{
 					_putchar(',');
 					_putchar(' ');
