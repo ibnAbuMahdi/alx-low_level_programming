@@ -24,30 +24,41 @@ void times_table(void)
 			m = r * c;
 			f = m / 10;
 			s = m % 10;
-			if (m == 0 && c > 0)
-			{
-				_putchar(' ');
-				_putchar(m + '0');
-			}
-			else if (m == 0 && c == 0)
-			{
-				_putchar('0');
-			}
-			else if (m < 10)
-			{
-				_putchar(' ');
-				_putchar(m + '0');
-			}
-			else
-			{
-				_putchar(f + '0');
-				_putchar(s + '0');
-			}
+			print_chars(m, f, s);
 			if (c != 9)
 			{
 				_putchar(',');
 				_putchar(' ');
 			}
 		} _putchar('\n');
+	}
+}
+
+/**
+ * print_chars - prints the characters but formatted
+ * @m: the multiplication result
+ * @f: the first digit of the result
+ * @s: the second digit of the result
+ */
+void print_chars(int m, int f, int s)
+{
+	if (m == 0 && c > 0)
+	{
+		_putchar(' ');
+		_putchar(m + '0');
+	}
+	else if (m == 0 && c == 0)
+	{
+		_putchar('0');
+	}
+	else if (m < 10)
+	{
+		_putchar(' ');
+		_putchar(m + '0');
+	}
+	else
+	{
+		_putchar(f + '0');
+		_putchar(s + '0');
 	}
 }
