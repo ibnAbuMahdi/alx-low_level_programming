@@ -25,6 +25,6 @@ int main(void)
 		n2 = sum;
 		c++;
 	}
-	printf("%ld", n2);
+	printf("%ld", n1);
 	return (0);
 }
