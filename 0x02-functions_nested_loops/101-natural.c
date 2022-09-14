@@ -1,8 +1,9 @@
 #include <stdio.h>
 /**
  * main - the entry point
+ * Return: always 0
  */
-void main(void)
+int main(void)
 {
 	/**
 	 * @sum: sum of the numbers divisible by 3 or 5
@@ -19,4 +20,5 @@ void main(void)
 		}
 	}
 	printf("%d\n", sum);
+	return (0);
 }
