@@ -12,15 +12,15 @@ void times_table(void)
 	 * @r: row counter
 	 * @c: column counter
 	 */
-	for (r = 0; r < 10; r++)
+	for (int r = 0; r < 10; r++)
 	{
-		for (c = 0; c < 10; r++)
+		for (int c = 0; c < 10; r++)
 		{
 			int m, f, s;
 
 			m = r * c;
-			f = r / 10;
-			s = M % 10;
+			f = m / 10;
+			s = m % 10;
 			if (m == 0 && c > 0)
 			{
 				_putchar(' ');
