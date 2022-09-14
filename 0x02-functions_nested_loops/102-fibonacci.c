@@ -19,12 +19,12 @@ int main(void)
 
 	while (c < 51)
 	{
-		printf("%d, ", n1);
+		printf("%ld, ", n1);
 		sum = n2 + n1;
 		n1 = n2;
 		n2 = sum;
 		c++;
 	}
-	printf("%d", n2);
+	printf("%ld", n2);
 	return (0);
 }
