@@ -20,7 +20,7 @@ int main(void)
 	while (c < 99)
 	{
 		if (n1 < 0)
-			n1 = abs(n1);
+			n1 = -1 * n1;
 		printf("%ld, ", n1);
 		sum = n2 + n1;
 		n1 = n2;
