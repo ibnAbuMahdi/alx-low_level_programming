@@ -13,8 +13,8 @@ int main(void)
 	 * @sum: sum of n1 and n2
 	 */
 	int c = 2;
-	float n1 = 1f;
-	float n2 = 2f;
+	float n1 = 1;
+	float n2 = 2;
 	float sum;
 
 	while (c < 99)
