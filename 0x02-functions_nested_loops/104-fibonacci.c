@@ -13,18 +13,20 @@ int main(void)
 	 * @sum: sum of n1 and n2
 	 */
 	int c = 2;
-	float n1 = 1;
-	float n2 = 2;
-	float sum;
+	long int n1 = 1;
+	long int n2 = 2;
+	long int sum;
 
 	while (c < 99)
 	{
-		printf("%f, ", n1);
+		if (n1 < 0)
+			n1 = abs(n1);
+		printf("%ld, ", n1);
 		sum = n2 + n1;
 		n1 = n2;
 		n2 = sum;
 		c++;
 	}
-	printf("%f\n", n1);
+	printf("%ld\n", n1);
 	return (0);
 }
