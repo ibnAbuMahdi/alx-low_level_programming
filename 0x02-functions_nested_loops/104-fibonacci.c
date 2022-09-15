@@ -13,18 +13,18 @@ int main(void)
 	 * @sum: sum of n1 and n2
 	 */
 	int c = 2;
-	unsigned long int n1 = 1;
-	unsigned long int n2 = 2;
-	unsigned long int sum;
+	float n1 = 1f;
+	float n2 = 2f;
+	float sum;
 
 	while (c < 99)
 	{
-		printf("%lu, ", n1);
+		printf("%f, ", n1);
 		sum = n2 + n1;
 		n1 = n2;
 		n2 = sum;
 		c++;
 	}
-	printf("%lu\n", n1);
+	printf("%f\n", n1);
 	return (0);
 }
