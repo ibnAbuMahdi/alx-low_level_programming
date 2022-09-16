@@ -4,4 +4,6 @@
 void _putchar(char c);
 
 int _isupper(char);
+
+int _isdigit(int);
 #endif
