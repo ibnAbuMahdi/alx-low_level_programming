@@ -8,16 +8,21 @@ void more_numbers(void)
 {
 	/**
 	 * @c: the number
+	 * @i: loop counter
 	 */
 	int c = 0;
+	int i;
 
-	for (; c < 15; c++)
+	for(i = 0; i < 10; i++)
 	{
-		if (c > 9)
+		for (; c < 15; c++)
 		{
-			_putchar(c / 10);
+			if (c > 9)
+			{
+				_putchar(c / 10);
+			}
+			_putchar(c % 10);
 		}
-		_putchar(c % 10);
+		_putchar('\n');
 	}
-	_putchar('\n');
 }
