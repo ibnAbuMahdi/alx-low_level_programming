@@ -7,11 +7,11 @@
 
 int _isupper(char c)
 {
-	if (c + 0 < 91 && c + 0 > 64)
+	if (c < 91 && c > 64)
 	{
 		return (1);
 	}
-	else if (c + 0 < 123 && c + 0 > 96)
+	else
 	{
 		return (0);
 	}
