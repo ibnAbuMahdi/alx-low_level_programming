@@ -21,13 +21,13 @@ void print_diagonal(int n)
 
 			for (; c < i + 1; c++)
 			{
-				if (c == i)
+				if (c != i)
 				{
-					_putchar('\\');
+					_putchar(' ');
 				}
 				else
 				{
-					_putchar(' ');
+					_putchar('\\');
 				}
 			}
 			_putchar('\n');
