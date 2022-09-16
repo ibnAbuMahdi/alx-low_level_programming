@@ -5,13 +5,13 @@
  * Return: 1 if upper case and 0 if lower case
  */
 
-int _isupper(int c)
+int _isupper(char c)
 {
-	if (c < 91 && c > 64)
+	if (c + 0 < 91 && c + 0 > 64)
 	{
 		return (1);
 	}
-	else if (c < 123 && c > 96)
+	else if (c + 0 < 123 && c + 0 > 96)
 	{
 		return (0);
 	}
