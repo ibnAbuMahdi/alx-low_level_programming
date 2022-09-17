@@ -15,7 +15,7 @@ print_number(98);
 		
 		    _putchar('\n');
 		    
-		        print_number(0);
+		        print_number(-32768);
 			
 			    _putchar('\n');
 			    
