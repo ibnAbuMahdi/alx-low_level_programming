@@ -12,7 +12,7 @@ void puts2(char *s)
 	 */
 	int i = 0;
 
-	while (*(s + i * 2) != 0)
+	while (*(s + i * 2) > 0)
 	{
 		_putchar(*(s + i * 2));
 		i++;

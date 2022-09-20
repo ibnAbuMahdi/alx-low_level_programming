@@ -21,7 +21,7 @@ int main(void)
 
 
 
-	    str = "0123456789";
+	    str = "012345689";
 
 	        puts2(str);
 
