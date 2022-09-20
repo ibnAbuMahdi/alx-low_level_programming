@@ -31,7 +31,7 @@ int _atoi(char *s)
 		{
 			st = 1;
 			d = *(s + i) - 48;
-			if (neg < 0 && n > 0)
+			if (neg < 0 && n >= 0)
 				n = neg * n * 10 + neg * d;
 			else if (neg < 0 && n < 0)
 				n = n * 10 + neg * d;
