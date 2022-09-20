@@ -31,7 +31,12 @@ int _atoi(char *s)
 		{
 			st = 1;
 			d = *(s + i) - 48;
-			n = n * 10 + d;
+			if (neg < 0 && n > 0)
+				n = neg * n * 10 + neg * d;
+			else if (neg < 0 && n < 0)
+				n = n * 10 + neg * d;
+			else
+				n = n * 10 + d;
 		}
 		else if (st == 1)
 		{
@@ -39,5 +44,5 @@ int _atoi(char *s)
 		}
 		i++;
 	}
-	return (n * neg);
+	return (n);
 }

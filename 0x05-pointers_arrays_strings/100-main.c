@@ -37,7 +37,7 @@ int nb;
 
 			        printf("%d\n", nb);
 
-				    nb = _atoi("0");
+				    nb = _atoi("-2147483648");
 
 				        printf("%d\n", nb);
 
