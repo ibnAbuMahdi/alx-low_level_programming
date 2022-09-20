@@ -23,4 +23,7 @@ void print_array(int *, int);
 
 char *_strcpy(char *dest, char *);
 
+int _atoi(char *s);
+
+int test(char *s);
 #endif
