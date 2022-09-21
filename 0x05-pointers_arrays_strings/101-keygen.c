@@ -16,11 +16,11 @@ int main(void)
 	 * @n: the number
 	 */
 
-	srand((unsigned int)(time(NULL)));
 	int i;
 	char pass[100];
 	int sum;
 	int n;
+	srand((unsigned int)(time(NULL)));
 
 	for (i = 0; i < 100; i++)
 	{
