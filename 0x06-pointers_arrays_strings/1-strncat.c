@@ -31,7 +31,7 @@ char *_strncat(char *dest, char  *src, int n)
 		{
 			j++;
 		}
-		else if (*(dest + j) == 0)
+		else
 		{
 			st = 1;
 		}
