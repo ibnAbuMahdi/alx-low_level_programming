@@ -15,23 +15,13 @@ char *rot13(char *s)
 
 	while (*(s + i) != 0)
 	{
-		char str[] = "abcdefghijklm";
-		char str1[] = "nopqrstuvwxyz";
-		char str2[] = "ABCDEFGHIJKLM";
-		char str3[] = "NOPQRSTUVWXYZ";
-		int k = 0;
-
-		while (str[k] != 0)
+		while ((s[i] > 64 && s[i] < 91) || (s[i] > 96 && s[i] < 123))
 		{
-			if (s[i] == str[k])
-				*(s + i) = str1[k];
-			else if (s[i] == str1[k])
-				*(s + i) = str[k];
-			else if (s[i] == str2[k])
-				*(s + i) = str3[k];
-			else if (s[i] == str3[k])
-				*(s + i) = str2[k];
-			k++;
+			if (s[i] < 77 || s[i] < 109)
+				*(s + i) = *(s + i) + 13;
+			else
+				*(s + i) = *(s + i) - 13;
+			i++;
 		}
 		i++;
 	}
