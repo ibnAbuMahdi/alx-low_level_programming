@@ -12,6 +12,7 @@ char *string_toupper(char *s)
 	 * @i: loop counter
 	 */
 	int i = 0;
+
 	while (*(s + i) != 0)
 	{
 		if (s[i] > 96 && s[i] < 123)
