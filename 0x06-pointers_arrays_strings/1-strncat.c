@@ -16,26 +16,31 @@ char *_strncat(char *dest, char  *src, int n)
 	 * @j: dest index tracker
 	 */
 	int i = 0;
-	int st = 0;
-	int j = 0;
+	int st = _strlen(dest);
 
-	while (*(src + i) > 0 && i < n)
+	for (; i < n && *(src + i) != 0; i++)
 	{
-		if (st > 0)
-		{
-			*(dest + j) = *(src + i);
-			i++;
-			j++;
-		}
-		else if (*(dest + j) > 0)
-		{
-			j++;
-		}
-		else
-		{
-			st = 1;
-		}
+		*(dest + st + i) = *(src + i);
 	}
-	*(dest + j) = '\0';
+	*(dest + st + i) = '\0';
 	return (dest);
 }
+
+/**
+ * _strlen - computes length of string
+ * @s: the string
+ * Return: the length as int
+ */
+
+int _strlen(char *s)
+{
+	/**
+	 * @i: loop and string counter
+	 */
+	int i = 0;
+
+	while (*(s + i) != 0)
+		i++;
+	return (i);
+}
+
