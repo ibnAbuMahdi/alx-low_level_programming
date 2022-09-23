@@ -13,5 +13,7 @@ int _strlen(char *);
 
 int _strcmp(char *, char *);
 
+void reverse_array(int *a, int n);
+
 
 #endif
