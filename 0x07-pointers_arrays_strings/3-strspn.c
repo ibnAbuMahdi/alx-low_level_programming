@@ -39,7 +39,5 @@ unsigned int _strspn(char *s, char *c)
 			break;
 		i++;
 	}
-	if (s[i] == 0)
-		k++;
 	return (k);
 }
