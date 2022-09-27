@@ -19,7 +19,6 @@
  *       */
 
 int main(void)
-
 {
 char *s = "hello, world";
 

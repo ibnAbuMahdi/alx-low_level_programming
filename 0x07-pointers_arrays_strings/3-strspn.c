@@ -13,25 +13,33 @@ unsigned int _strspn(char *s, char *c)
 	 * @i: loop counter
 	 * @j: match counter
 	 */
-	unsigned int j = 0;
+	unsigned int i = 0;
 	unsigned int k = 0;
-	unsigned int i;
+	unsigned int j;
+	unsigned int t;
+	unsigned int st;
 
-	while (c[j] != 0)
+	while (s[i] != 0)
 	{
-		i = 0;
+		j = 0;
+		t = k;
 
-		while (s[i] != 0)
+		while (c[j] != 0)
 		{
 			if (*(s + i) == c[j])
 			{
+				st = 1;
 				k++;
 				break;
 			}
-			i++;
+			j++;
 		}
-		j++;
+		if (st > 0 && t == k)
+			break;
+		i++;
+
 	}
-	k++;
+	if (s[i] == 0)
+		k++;
 	return (k);
 }
