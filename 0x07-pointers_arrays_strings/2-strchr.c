@@ -1,5 +1,5 @@
 #include "main.h"
-
+#include <stddef.h>
 /**
  * _strchr - finds the first occurence of c in s
  * @s: the pointer to the char array
@@ -23,5 +23,5 @@ char *_strchr(char *s, char c)
 		i++;
 	}
 
-	return ("NULL");
+	return (NULL);
 }
