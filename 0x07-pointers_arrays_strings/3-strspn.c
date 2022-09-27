@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 #include <stddef.h>
 /**
  * _strspn - returns number of bytes in s that matches those in c
@@ -17,7 +18,7 @@ unsigned int _strspn(char *s, char *c)
 	unsigned int k = 0;
 	unsigned int j;
 	unsigned int t;
-	unsigned int st;
+	unsigned int st = 0;
 
 	while (s[i] != 0)
 	{
@@ -37,7 +38,6 @@ unsigned int _strspn(char *s, char *c)
 		if (st > 0 && t == k)
 			break;
 		i++;
-
 	}
 	if (s[i] == 0)
 		k++;
