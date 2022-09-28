@@ -20,7 +20,7 @@ char *_strstr(char *s, char *c)
 	unsigned int st = 0;
 
 	if (c[0] == 0)
-		return (NULL);
+		return (s);
 	while (s[i] != 0)
 	{
 		if (st != 0 && s[i] == c[j])
