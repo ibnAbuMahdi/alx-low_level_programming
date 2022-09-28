@@ -18,11 +18,12 @@ void print_diagsums(int *a, int n)
 	int s1 = 0;
 	int s2 = 0;
 	int *p;
-	p = a;
 
+	p = a;
 	while (i < n)
 	{
 		j = 0;
+
 		for (; j < n; j++)
 		{
 			if (j == i)
