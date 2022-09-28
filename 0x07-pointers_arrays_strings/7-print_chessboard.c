@@ -14,6 +14,7 @@ void print_chessboard(char (*a)[8])
 	unsigned int i = 0;
 	unsigned int j;
 	char *p = a[0];
+
 	while (*p != 0 && i < 8)
 	{
 		j = 0;
