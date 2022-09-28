@@ -19,26 +19,28 @@ char *_strstr(char *s, char *c)
 	char *p;
 	unsigned int st = 0;
 
+	if (c[0] == 0)
+		return (NULL);
 	while (s[i] != 0)
 	{
-			if (st != 0 && s[i] == c[j])
-			{
-				j++;
-			}
-			else if (st == 0 && s[i] == c[j])
-			{
-				p = s + i;
-				st = 1;
-				j++;
-			}
-			else if (st != 0 && s[i] != c[j] && c[j] != 0)
-			{
-				st = 0;
-				j = 0;
-			}
-			i++;
-			if (c[j] == 0 && j > 0)
-				return (p);
+		if (st != 0 && s[i] == c[j])
+		{
+			j++;
+		}
+		else if (st == 0 && s[i] == c[j])
+		{
+			p = s + i;
+			st = 1;
+			j++;
+		}
+		else if (st != 0 && s[i] != c[j] && c[j] != 0)
+		{
+			st = 0;
+			j = 0;
+		}
+		i++;
+		if (c[j] == 0 && j > 0)
+			return (p);
 
 	}
 	return (NULL);

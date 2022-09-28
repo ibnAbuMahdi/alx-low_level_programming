@@ -22,7 +22,7 @@ int main(void)
 {
 	 char *s = "hello, world";
 
-	     char *f = "world";
+	     char *f = "";
 
 	         char *t;
 
@@ -30,7 +30,8 @@ int main(void)
 
 		     t = _strstr(s, f);
 
-		         printf("%s\n", t);
+		        if (t != NULL)
+			       printf("%s\n", t);
 
 			     return (0);
 }
