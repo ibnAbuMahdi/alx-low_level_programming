@@ -20,17 +20,17 @@
 
 int main(void)
 {
-char *s = "hello, world";
+	 char *s = "hello, world";
 
-    char *f = "world";
+	     char *f = "world";
 
-        char *t;
+	         char *t;
 
 
 
-	    t = _strstr(s, f);
+		     t = _strstr(s, f);
 
-	        printf("%s\n", t);
+		         printf("%s\n", t);
 
-		    return (0);
+			     return (0);
 }

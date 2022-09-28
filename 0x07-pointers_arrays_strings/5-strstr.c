@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 #include <stddef.h>
 /**
  * _strstr - find the first occurence of c in s
@@ -15,27 +16,30 @@ char *_strstr(char *s, char *c)
 	 */
 	unsigned int i = 0;
 	unsigned int j = 0;
-	char *st = NULL;
+	char *p;
+	unsigned int st = 0;
 
 	while (s[i] != 0)
 	{
-		if (st != NULL && s[i] == c[j])
-		{
-			j++;
-		}
-		else if (s[i] == c[j])
-		{
-			st = s + i;
-			j++;
-		}
-		else if (st != NULL && s[i] != c[j] && s[i] != 0 && c[j] != 0)
-		{
-			st = NULL;
-			j = 0;
-		}
-		i++;
-		if (s[i] == 0 && c[j] != 0)
-			st = NULL;
+			if (st != 0 && s[i] == c[j])
+			{
+				j++;
+			}
+			else if (st == 0 && s[i] == c[j])
+			{
+				p = s + i;
+				st = 1;
+				j++;
+			}
+			else if (st != 0 && s[i] != c[j] && c[j] != 0)
+			{
+				st = 0;
+				j = 0;
+			}
+			i++;
+			if (c[j] == 0 && j > 0)
+				return (p);
+
 	}
-	return (st);
+	return (NULL);
 }
