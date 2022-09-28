@@ -15,5 +15,7 @@ char *_strstr(char *, char *);
 
 char *_strpbrk(char *s, char *accept);
 
+void print_chessboard(char (*a)[8]);
+
 
 #endif
