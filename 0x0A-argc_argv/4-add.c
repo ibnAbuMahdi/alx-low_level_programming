@@ -11,8 +11,8 @@
 int main(int argc, char **argv)
 {
 	char **end;
-	long int sum = 0;
-	long int num;
+	int sum = 0;
+	int num;
 	int i;
 	char *p = "";
 
@@ -21,7 +21,7 @@ int main(int argc, char **argv)
 		printf("%d\n", 0);
 	for (i = 1; i < argc; i++)
 	{
-		num = strtol(argv[i], end, 10);
+		num =(int) strtol(argv[i], end, 10);
 		if (**end == 0 && isnum(argv[i]) == 0)
 		{
 			sum = sum + num;
@@ -32,7 +32,7 @@ int main(int argc, char **argv)
 			return (1);
 		}
 	}
-	printf("%ld\n", sum);
+	printf("%d\n", sum);
 	return (0);
 }
 
