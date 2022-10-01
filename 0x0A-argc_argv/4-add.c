@@ -21,7 +21,7 @@ int main(int argc, char **argv)
 		printf("%d\n", 0);
 	for (i = 1; i < argc; i++)
 	{
-		num =(int) strtol(argv[i], end, 10);
+		num = (int) strtol(argv[i], end, 10);
 		if (**end == 0 && isnum(argv[i]) == 0)
 		{
 			sum = sum + num;
