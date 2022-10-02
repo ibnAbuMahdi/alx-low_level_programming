@@ -18,21 +18,26 @@ int main(int argc, char **argv)
 
 	end = &p;
 	if (argc < 2)
-		printf("%d\n", 0);
-	for (i = 1; i < argc; i++)
 	{
-		num = (int) strtol(argv[i], end, 10);
-		if (**end == 0 && isnum(argv[i]) == 0)
-		{
-			sum = sum + num;
-		}
-		else
-		{
-			printf("%s\n", "Error");
-			return (1);
-		}
+		printf("%d\n", 0);
 	}
-	printf("%d\n", sum);
+	else
+	{
+		for (i = 1; i < argc; i++)
+		{
+			num = (int) strtol(argv[i], end, 10);
+			if (**end == 0 && isnum(argv[i]) == 0)
+			{
+				sum = sum + num;
+			}
+			else
+			{
+				printf("%s\n", "Error");
+				return (1);
+			}
+		}
+		printf("%d\n", sum);
+	}
 	return (0);
 }
 
