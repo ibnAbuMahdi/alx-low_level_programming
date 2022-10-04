@@ -27,10 +27,13 @@ int **alloc_grid(int w, int h)
 		{
 			int j = 0;
 
+			if (grid[i] == NULL)
+			{
+				free(grid);
+				return (NULL);
+			}
 			for (; j < w; j++)
 			{
-				if (grid[i] == NULL)
-					return (NULL);
 				*(*(grid + i) + j) = 0;
 			}
 		}
