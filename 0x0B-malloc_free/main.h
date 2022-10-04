@@ -8,4 +8,6 @@ char *create_array(unsigned int, char);
 char *_strdup(char *);
 
 unsigned int _strlen(char *);
+
+char *str_concat(char *s1, char *s2);
 #endif
