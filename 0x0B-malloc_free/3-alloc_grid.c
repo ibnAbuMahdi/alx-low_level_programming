@@ -31,19 +31,20 @@ int **alloc_grid(int w, int h)
 		}
 	}
 
-	if (grid != NULL)
-	{
 		i = 0;
+
 		for (; i < h; i++)
 		{
 			int j = 0;
 
-			for (; j < w; j++)
+			if (grid[i] != NULL)
 			{
-				*(*(grid + i) + j) = 0;
+				for (; j < w; j++)
+				{
+					*(*(grid + i) + j) = 0;
+				}
 			}
 		}
-	}
 	return (grid);
 }
 
