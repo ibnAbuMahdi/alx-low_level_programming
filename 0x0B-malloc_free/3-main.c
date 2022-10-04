@@ -77,7 +77,7 @@ int main(void)
 
 
 
-	        grid = alloc_grid(6, 4);
+	        grid = alloc_grid(48, 32);
 
 		    if (grid == NULL)
 
@@ -87,7 +87,7 @@ int main(void)
 
 						    }
 
-		        print_grid(grid, 6, 4);
+		        print_grid(grid, 48, 32);
 
 			    printf("\n");
 
