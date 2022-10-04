@@ -6,4 +6,6 @@ void _putchar(char c);
 char *create_array(unsigned int, char);
 
 char *_strdup(char *);
+
+unsigned int _strlen(char *);
 #endif

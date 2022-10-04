@@ -24,7 +24,7 @@ int main(void)
 
 
 
-	        s = _strdup("ALX SE");
+	        s = _strdup("First, solve the problem. Then, write the code.");
 
 		    if (s == NULL)
 
