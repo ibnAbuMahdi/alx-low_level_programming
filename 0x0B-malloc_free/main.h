@@ -10,4 +10,8 @@ char *_strdup(char *);
 unsigned int _strlen(char *);
 
 char *str_concat(char *s1, char *s2);
+
+int **alloc_grid(int, int);
+
+
 #endif
