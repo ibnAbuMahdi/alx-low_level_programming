@@ -39,7 +39,7 @@ char *argstostr(int ac, char **av)
 			s[i] = '\n';
 			j++;
 			i++;
-		
+
 		}
 		s[i] = '\0';
 	}
