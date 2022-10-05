@@ -5,7 +5,10 @@
 #include <stddef.h>
 
 /**
- *
+ * main - driver function
+ * @argc: args count
+ * @argv: args array
+ * Return: 0 always
  */
 
 int main(int argc, char **argv)
@@ -32,7 +35,10 @@ int main(int argc, char **argv)
 }
 
 /**
- *
+ * mincoins - get the minimum coins for change
+ * @coins: array of coins
+ * @num: amount to change
+ * Return: number of coins
  */
 
 int mincoins(int *coins, int num)
@@ -43,13 +49,13 @@ int mincoins(int *coins, int num)
 	int i;
 	int *change;
 
-	change = malloc(sizeof(int) * (num + 1));
-	if(!change)
+	change = malloc(sizeof(int) * num + sizeof(int));
+	if (!change)
 		return (0);
-	for(i = 1; i <= num; i++)
+	for (i = 1; i <= num; i++)
 		change[i] = INT_MAX;
 	change[0] = 0;
-	
+
 	for (i = 1; i <= num; i++)
 	{
 		int j;
