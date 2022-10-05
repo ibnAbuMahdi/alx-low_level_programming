@@ -17,5 +17,10 @@ void free_grid(int **, int);
 
 char *argstostr(int, char **);
 
+char **strtow(char *str);
+
+int words(char *);
+
+char **alm(char *);
 
 #endif
