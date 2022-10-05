@@ -93,6 +93,8 @@ char **strtow(char *str)
 		if (str[i] != 0)
 			i++;
 	}
+	if (wc == 0)
+		return (NULL);
 	*(a + wc) = NULL;
 	return (a);
 }
