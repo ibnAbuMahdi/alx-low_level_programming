@@ -10,7 +10,7 @@
 void *_calloc(unsigned int n, unsigned int b)
 {
 	void *s;
-	int i;
+	unsigned int i;
 
 	if (n == 0 || b == 0)
 		return (NULL);
