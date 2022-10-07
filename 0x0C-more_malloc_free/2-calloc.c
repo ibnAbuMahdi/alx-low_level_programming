@@ -10,6 +10,7 @@
 void *_calloc(unsigned int n, unsigned int b)
 {
 	void *s;
+	int i;
 
 	if (n == 0 || b == 0)
 		return (NULL);
@@ -18,6 +19,8 @@ void *_calloc(unsigned int n, unsigned int b)
 
 	if (n * b < INT_MAX && s)
 	{
+		for (i = 0; i < n * b; i++)
+			s[i] = 0;
 		return (s);
 	}
 	return (NULL);
