@@ -11,5 +11,7 @@ unsigned int _strlen(char *);
 
 void *_calloc(unsigned int, unsigned int);
 
+int *array_range(int min, int max);
+
 
 #endif 
