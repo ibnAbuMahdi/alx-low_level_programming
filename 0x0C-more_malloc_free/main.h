@@ -9,7 +9,7 @@ char *string_nconcat(char *, char *, unsigned int);
 
 unsigned int _strlen(char *);
 
-void *_calloc(unsigned in, unsigned int);
+void *_calloc(unsigned int, unsigned int);
 
 
 #endif 

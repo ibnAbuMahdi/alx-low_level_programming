@@ -16,7 +16,9 @@ void *_calloc(unsigned int n, unsigned int b)
 
 	s = malloc(n * b);
 
-	if (s)
+	if (n * b < INT_MAX && s)
+	{
 		return (s);
+	}
 	return (NULL);
 }
