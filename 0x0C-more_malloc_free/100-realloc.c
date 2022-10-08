@@ -10,8 +10,8 @@
 
 void *_realloc(void *ptr, unsigned int o, unsigned int n)
 {
-	double *new;
-	double *t;
+	char *new;
+	char *t;
 	unsigned int min;
 	unsigned int i;
 
@@ -42,6 +42,7 @@ void *_realloc(void *ptr, unsigned int o, unsigned int n)
 	t = ptr;
 	for (i = 0; i < min; i++)
 		new[i] = *(t + i);
+
 	free(ptr);
 	return ((void *) new);
 
