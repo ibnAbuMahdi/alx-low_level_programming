@@ -13,5 +13,7 @@ void *_calloc(unsigned int, unsigned int);
 
 int *array_range(int min, int max);
 
+void *_realloc(void *, unsigned int, unsigned int);
+
 
 #endif 
