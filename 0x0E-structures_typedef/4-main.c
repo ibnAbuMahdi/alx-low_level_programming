@@ -22,9 +22,9 @@ int main(void)
 
 
 
-	        my_dog = new_dog("Poppy", 3.5, NULL);
+	        my_dog = new_dog("Ghost", 4.75, "Jon Snow");
 
-		    printf("My name is %s, my owner's name is %s and I am %.1f :) - Woof!\n", my_dog->name, my_dog->owner, my_dog->age);
+		    printf("My name is %s, my owner's name is %s and I am %.2f :) - Woof!\n", my_dog->name, my_dog->owner, my_dog->age);
 
 		        return (0);
 
