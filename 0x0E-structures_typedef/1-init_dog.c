@@ -11,9 +11,9 @@
 void init_dog(struct dog *d, char *name, float age, char *owner)
 {
 	if (name)
-		d->name = name;
+		(*d).name = name;
 	if (age >= 0)
-		d->age = age;
+		(*d).age = age;
 	if (owner)
-		d->owner = owner;
+		(*d).owner = owner;
 }
