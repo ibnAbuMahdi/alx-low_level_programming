@@ -2,11 +2,11 @@
 #define DOG_H
 /*declare dog with members name, age and owner
  */
-struct dog {
+typedef struct dog {
 	char	*name;
 	float 	age;
 	char	*owner;
-} dog;
+} dog_t;
 
 void init_dog(struct dog *, char *, float, char *);
 
