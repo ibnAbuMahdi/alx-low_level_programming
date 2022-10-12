@@ -11,7 +11,8 @@ void print_name(char *name, void (*f)(char *))
 {
 	char *buf;
 	int i, ln;
-
+	if (name == NULL)
+		name = "\0";
 	for (ln = 0; name[ln]; ln++)
 		;
 	buf = malloc(ln + 1);
@@ -20,7 +21,7 @@ void print_name(char *name, void (*f)(char *))
 		for (i = 0; i < ln; i++)
 			buf[i] = name[i];
 		buf[i] = '\0';
-
-		f(buf);
+		if (f)
+			f(buf);
 	}
 }
