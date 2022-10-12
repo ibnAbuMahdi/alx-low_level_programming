@@ -11,6 +11,7 @@ void print_name(char *name, void (*f)(char *))
 {
 	char *buf;
 	int i, ln;
+
 	if (name == NULL)
 		name = "\0";
 	for (ln = 0; name[ln]; ln++)

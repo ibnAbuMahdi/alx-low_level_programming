@@ -4,5 +4,4 @@
 int _putchar(char);
 
 void print_name(char *name, void (*)(char *));
-
-#endif 
+#endif /* MAIN_H */
