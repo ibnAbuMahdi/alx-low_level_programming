@@ -1,26 +1,6 @@
 #include "dog.h"
 #include <stdlib.h>
 
-char *_strdup(char *str)
-{
-	char* temp;
-	int i = 0;
-	for (; str[i]; i++)
-		;
-	temp = malloc(i+1);
-	if (!temp)
-		return (NULL);
-	i = 0;
-	while (1)
-	{
-		temp[i] = str[i];
-		if (str[i])
-			i++;
-		else
-			break;
-	}
-	return (temp);
-}
 /**
  * new_dog - creates new dog struct
  * @name: dog's name
@@ -32,7 +12,8 @@ char *_strdup(char *str)
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *new;
-	int ln, lo;
+	int ln, lo, i;
+
 	new = malloc(sizeof(*new));
 	if (!new)
 		return (NULL);
@@ -40,7 +21,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 		;
 	for (lo = 0; owner[lo]; lo++)
 		;
-	
+
 	new->name = malloc(ln + 1);
 	while (!new->name)
 	{
@@ -56,7 +37,11 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (NULL);
 	}
 	new->age = age;
-	new->name = name;
-	new->owner = owner;
+	for (i = 0; i < ln; i++)
+		new->name[i] = name[i];
+	new->name[i] = '\0';
+	for (i = 0; i < lo; i++)
+		new->owner[i] = owner[i];
+	new->owner[i] = '\0';
 	return (new);
 }
