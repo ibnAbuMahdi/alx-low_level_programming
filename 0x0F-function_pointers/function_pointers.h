@@ -1,7 +1,7 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-void _putchar(char);
+int _putchar(char);
 
 void print_name(char *name, void (*)(char *));
 
