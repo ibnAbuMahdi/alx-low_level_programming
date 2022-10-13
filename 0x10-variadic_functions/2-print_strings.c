@@ -3,12 +3,12 @@
 #include <stdio.h>
 
 /**
- * print_numbers - prints numbers passes as var_args
- * @sep: seperator between the numbers
+ * print_strings - prints strings passed as var_args
+ * @sep: seperator between the strings
  * @n: number of var_args to print
  */
 
-void print_numbers(const char *sep, const unsigned int n, ...)
+void print_strings(const char *sep, const unsigned int n, ...)
 {
 	unsigned int i = 0;
 	va_list list;
@@ -18,11 +18,17 @@ void print_numbers(const char *sep, const unsigned int n, ...)
 		va_start(list, n);
 		for (; i < n; i++)
 		{
-			printf("%d", va_arg(list, const unsigned int));
+			char *str = va_arg(list, char*);
+
+			if (str)
+				printf("%s", str);
+			else
+				printf("(nil)");
+
 			if (i < n - 1 && sep)
 				printf("%s", sep);
 		}
-		va_end(list);
 	}
+	va_end(list);
 	printf("\n");
 }
