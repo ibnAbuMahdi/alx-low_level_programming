@@ -13,11 +13,11 @@ void print_all(const char * const format, ...)
 	int i = 0, j = 0;
 	va_list list;
 
-	while (format[j] != 'c' &&
+	while (format && format[j] != 'c' &&
 			format[j] != 'i' && format[j] != 'f' && format[j] != 's')
 		j++;
 	va_start(list, format);
-	while (format[i])
+	while (format && format[i])
 	{
 		if (i > j && (format[i] == 'c' || format[i] == 'i' ||
 				format[i] == 'f' || format[i] == 's'))
