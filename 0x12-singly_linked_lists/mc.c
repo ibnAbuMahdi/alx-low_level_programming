@@ -30,9 +30,9 @@ int main(void)
 
 		    add_node(&head, "Alexandro");
 
-		        add_node(&head, "Asaia");
+		        add_node(&head, NULL);
 
-			    add_node(&head, "Augustin");
+			    add_node(NULL, "Augustin");
 
 			        add_node(&head, "Bennett");
 

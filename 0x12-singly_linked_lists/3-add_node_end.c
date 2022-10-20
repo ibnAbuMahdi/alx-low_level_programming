@@ -25,7 +25,7 @@ list_t *add_node_end(list_t **head, const char *str)
 		s = NULL;
 	}
 
-	if (head)
+	if (head && s)
 	{
 		list_t *temp1 = *head;
 
