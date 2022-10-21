@@ -18,6 +18,8 @@ list_t *add_node_end(list_t **head, const char *str)
 	if (str)
 	{
 		s = strdup(str);
+		if (!s)
+			return (NULL);
 		i = _strlen(s);
 	}
 	else
@@ -25,7 +27,7 @@ list_t *add_node_end(list_t **head, const char *str)
 		s = NULL;
 	}
 
-	if (head && s)
+	if (head)
 	{
 		list_t *temp1 = *head;
 
