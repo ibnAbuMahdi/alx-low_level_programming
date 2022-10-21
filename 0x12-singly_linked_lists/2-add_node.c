@@ -27,13 +27,12 @@ list_t *add_node(list_t **head, const char *str)
 	if (head && s)
 	{
 		temp = malloc(sizeof(list_t));
-		if (temp)
-		{
-			temp->next = *head;
-			temp->len = i;
-			temp->str = s;
-			*head = temp;
-		}
+		if (!temp)
+			return (NULL);
+		temp->next = *head;
+		temp->len = i;
+		temp->str = s;
+		*head = temp;
 	}
 	return (temp);
 }
