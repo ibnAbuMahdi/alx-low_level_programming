@@ -1,6 +1,7 @@
 #include "lists.h"
 #include <stddef.h>
 #include <stdlib.h>
+#include <limits.h>
 
 /**
  * insert_nodeint_at_index - get node at index
@@ -15,13 +16,14 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int index, int i)
 	unsigned int j = 0;
 	listint_t *temp = NULL;
 
+	if (i > INT_MAX || i < INT_MIN)
+		return (NULL);
 	if (head)
 	{
 		temp = malloc(sizeof(listint_t));
 		if (!temp)
 			return (NULL);
 		temp = *head;
-
 		while (temp)
 		{
 			if (index > 0 && j == index - 1)
