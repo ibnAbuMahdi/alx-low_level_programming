@@ -48,7 +48,7 @@ int main(void)
 
 						        printf("-----------------\n");
 
-							   head = insert_nodeint_at_index(NULL, 0, 4096);
+							  insert_nodeint_at_index(&head, 5, 4096);
 
 							        print_listint(head);
 
