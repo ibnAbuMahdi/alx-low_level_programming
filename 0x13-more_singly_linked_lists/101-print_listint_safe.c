@@ -25,11 +25,13 @@ size_t print_listint_safe(const listint_t *h)
 		if (temp->next == nhead)
 		{
 			printf("-> [%p] %d\n", (void *)temp, temp->n);
+			free(nhead);
 			return (i);
 		}
 		printf("[%p] %d\n", (void *)temp, temp->n);
 		temp->next = nhead;
 		temp = next;
 	}
+	free(nhead);
 	return (i);
 }
