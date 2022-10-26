@@ -17,6 +17,8 @@ size_t print_listint_safe(const listint_t *h)
 	nhead = malloc(sizeof(listint_t));
 	if (!nhead)
 		exit(98);
+	if (!h)
+		return (0);
 	while (temp)
 	{
 		listint_t *next = temp->next;
@@ -32,6 +34,5 @@ size_t print_listint_safe(const listint_t *h)
 		temp->next = nhead;
 		temp = next;
 	}
-	free(nhead);
 	return (i);
 }
