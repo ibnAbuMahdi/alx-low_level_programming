@@ -49,7 +49,8 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int index, int i)
 	}
 	else
 	{
-		return (add_nodeint(&temp, i));
+		temp = add_nodeint(&temp, i);
+		return (temp);
 	}
 	return (NULL);
 }
