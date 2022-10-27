@@ -42,5 +42,9 @@ listint_t *reverse_listint(listint_t **);
 
 size_t print_listint_safe(const listint_t *);
 
+size_t free_listint_safe(listint_t **);
+
+size_t free_listint1_safe(listint_t *, listint_t *);
+
 
 #endif /*LISTS_H*/
