@@ -20,7 +20,7 @@ size_t free_listint_safe(listint_t **h)
 		temp = *h;
 		*h = NULL;
 		if (temp)
-			i = free_listint1_safe(temp, dummy);
+			i += free_listint1_safe(temp, dummy);
 	}
 	return (i);
 }
@@ -42,7 +42,7 @@ size_t free_listint1_safe(listint_t *h, listint_t *dummy)
 		listint_t *next = h->next;
 
 		if (h->next == dummy)
-			return (1);
+			return (0);
 		if (h->next)
 		{
 			h->next = dummy;
