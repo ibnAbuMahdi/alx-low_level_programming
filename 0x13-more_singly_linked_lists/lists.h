@@ -46,5 +46,7 @@ size_t free_listint_safe(listint_t **);
 
 size_t free_listint1_safe(listint_t *, listint_t *);
 
+listint_t *find_listint_loop(listint_t *);
+
 
 #endif /*LISTS_H*/
