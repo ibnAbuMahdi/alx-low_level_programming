@@ -42,7 +42,7 @@ size_t free_listint1_safe(listint_t *h, listint_t *dummy)
 		listint_t *next = h->next;
 
 		if (h->next == dummy)
-			return (0);
+			return (1);
 		if (h->next)
 		{
 			h->next = dummy;
