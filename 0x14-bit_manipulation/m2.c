@@ -26,7 +26,7 @@ int main(void)
 
 		    printf("%d\n", n);
 
-		        n = get_bit(8, 8);
+		        n = get_bit(0, 0);
 
 			    printf("%d\n", n);
 
