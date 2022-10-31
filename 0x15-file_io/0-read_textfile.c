@@ -23,13 +23,25 @@ ssize_t read_textfile(const char *f, size_t c)
 		return (0);
 	fd = open(f, O_RDONLY);
 	if (fd < 0)
+	{
+		free(buf);
+		close(fd);
 		return (0);
+	}
 	readno = read(fd, buf, c);
 	if (readno < 0)
+	{
+		free(buf);
+		close(fd);
 		return (0);
+	}
 	writeno = write(STDOUT_FILENO, buf, c);
 	if (writeno < (size_t) readno)
+	{
+		free(buf);
+		close(fd);
 		return (0);
+	}
 	free(buf);
 	close(fd);
 	return (writeno);
