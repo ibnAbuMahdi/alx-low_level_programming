@@ -15,8 +15,8 @@
 ssize_t read_textfile(const char *f, size_t c)
 {
 	char *buf;
-	int fd, readno;
-	size_t	writeno;
+	int fd;
+	size_t readno, writeno;
 
 	buf = malloc(c);
 	if (!f || !buf)
