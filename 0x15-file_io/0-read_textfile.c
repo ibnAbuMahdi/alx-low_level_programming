@@ -4,7 +4,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <sys/types.h>
-
+#include <limits.h>
 /**
  * read_textfile - reads c chars from file *f to stdout
  * @c: number of chars to print
@@ -19,7 +19,7 @@ ssize_t read_textfile(const char *f, size_t c)
 	size_t writeno;
 
 	buf = malloc(c);
-	if (!f || !buf || !c)
+	if (!f || !buf || !c || c > SSIZE_MAX)
 		return (0);
 	fd = open(f, O_RDONLY);
 	if (fd < 0)
