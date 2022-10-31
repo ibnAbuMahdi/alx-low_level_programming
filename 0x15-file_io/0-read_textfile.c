@@ -15,8 +15,8 @@
 ssize_t read_textfile(const char *f, size_t c)
 {
 	char *buf;
-	int fd, readno;
-	size_t writeno;
+	int fd;
+	ssize_t readno, writeno;
 
 	buf = malloc(c);
 	if (!f || !buf || !c || c > SSIZE_MAX)
@@ -36,7 +36,7 @@ ssize_t read_textfile(const char *f, size_t c)
 		return (0);
 	}
 	writeno = write(STDOUT_FILENO, buf, c);
-	if (writeno < (size_t) readno)
+	if (writeno != readno)
 	{
 		free(buf);
 		close(fd);
