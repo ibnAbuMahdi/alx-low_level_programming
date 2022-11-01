@@ -27,22 +27,23 @@ int main(int ac, char **av)
 	fd_to = open(av[2], O_WRONLY | O_TRUNC);
 	if (fd_to < 0)
 		fd_to = creat(av[2], S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
-	if (fd_to < 0)
+	mask = (1 << 7) | (1 << 1);
+	if (fd_to < 0 || (rto == 0 && (fs.st_mode & mask) == 0))
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", av[2]);
 		exit(99);
 	}
 
-	mask = (1 << 8);
 	rto = stat(av[1], &fs);
-	fd_from = open(av[1], O_RDONLY);
-	if ((rto == 0 && (fs.st_mode & mask) == 0) || fd_from < 0)
+	mask = (1 << 8) | (1 << 2);
+	if (rto == 0 && (fs.st_mode & mask) == 0)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
 		call_close(fd_to);
 		remove(av[2]);
 		exit(98);
 	}
+	fd_from = open(av[1], O_RDONLY);
 	copy(fd_from, fd_to, av[1], av[2]);
 	return (0);
 }
