@@ -35,8 +35,8 @@ ssize_t read_textfile(const char *f, size_t c)
 		close(fd);
 		return (0);
 	}
-	writeno = write(STDOUT_FILENO, buf, c);
-	if (writeno != (ssize_t) c)
+	writeno = write(STDOUT_FILENO, buf, readno);
+	if (writeno != readno)
 	{
 		free(buf);
 		close(fd);
