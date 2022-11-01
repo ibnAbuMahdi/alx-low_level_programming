@@ -88,7 +88,6 @@ void call_close(int fd)
 {
 	if (close(fd) < 0)
 		dprintf(STDERR_FILENO, "Error: can't close fd %d\n", fd);
-	exit(100);
 }
 
 
