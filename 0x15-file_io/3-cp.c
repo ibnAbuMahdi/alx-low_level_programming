@@ -55,7 +55,7 @@ void copy(int fd_from, int fd_to, char *from, char *to)
 	char buf[1024];
 	ssize_t readno, writeno;
 
-	while ((readno = read(fd_from, buf, 1023)) > 0)
+	while ((readno = read(fd_from, buf, 1024)) > 0)
 	{
 		writeno = write(fd_to, buf, readno);
 		if (writeno < 1)
