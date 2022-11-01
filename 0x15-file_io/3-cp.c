@@ -21,9 +21,9 @@ int main(int ac, char **av)
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	rto = open(av[2], O_RDONLY);
+	rto = access(av[2], W_OK);
 	fd_to = open(av[2], O_WRONLY | O_TRUNC);
-	if (fd_to < 0 && rto < 0)
+	if (fd_to < 0 || rto < 0)
 		fd_to = creat(av[2], S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
 	if (fd_to < 0)
 	{
@@ -32,7 +32,7 @@ int main(int ac, char **av)
 	}
 
 	fd_from = open(av[1], O_RDONLY);
-	if (fd_from < 0)
+	if (fd_from < 0 || access(av[1], R_OK) < 0)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
 		call_close(fd_to);
