@@ -14,15 +14,16 @@
 
 int main(int ac, char **av)
 {
-	int fd_from, fd_to;
+	int fd_from, fd_to, rto;
 
 	if (ac != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
+	rto = open(av[2], O_RDONLY);
 	fd_to = open(av[2], O_WRONLY | O_TRUNC);
-	if (fd_to < 0)
+	if (fd_to < 0 && rto < 0)
 		fd_to = creat(av[2], S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
 	if (fd_to < 0)
 	{
