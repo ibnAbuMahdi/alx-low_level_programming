@@ -27,7 +27,6 @@ int main(int ac, char **av)
 	if (fd_to < 0)
 	{
 		dprintf(STDERR_FILENO, "Error: can't write to file %s\n", av[2]);
-		call_close(fd_to);
 		exit(99);
 	}
 
@@ -36,7 +35,6 @@ int main(int ac, char **av)
 	{
 		dprintf(STDERR_FILENO, "Error: can't read from file %s\n", av[1]);
 		call_close(fd_to);
-		call_close(fd_from);
 		exit(98);
 	}
 	copy(fd_from, fd_to, av[1], av[2]);
