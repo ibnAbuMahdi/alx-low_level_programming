@@ -63,7 +63,7 @@ void copy(int fd_from, int fd_to, char *from, char *to)
 	while ((readno = read(fd_from, buf, 1024)) > 0)
 	{
 		writeno = write(fd_to, buf, readno);
-		if (writeno < 1)
+		if (writeno < readno)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", to);
 			call_close(fd_to);
