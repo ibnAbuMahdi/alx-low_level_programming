@@ -57,6 +57,13 @@ void copy(int fd_from, int fd_to, char *from, char *to)
 
 	while ((readno = read(fd_from, buf, 1023)) > 0)
 	{
+		if (readno < 0)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", from);
+			call_close(fd_from);
+			call_close(fd_to);
+			exit(98);
+		}
 		writeno = write(fd_to, buf, readno);
 		if (writeno < readno)
 		{
@@ -65,13 +72,6 @@ void copy(int fd_from, int fd_to, char *from, char *to)
 			call_close(fd_from);
 			exit(99);
 		}
-	}
-	if (readno < 0)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", from);
-		call_close(fd_to);
-		call_close(fd_from);
-		exit(98);
 	}
 
 	call_close(fd_to);
