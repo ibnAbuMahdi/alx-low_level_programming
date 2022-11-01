@@ -21,7 +21,7 @@ ssize_t read_textfile(const char *f, size_t c)
 	buf = malloc(c);
 	if (!f || !buf || c > SSIZE_MAX)
 		return (0);
-	fd = open(f, O_RDONLY, 00700);
+	fd = open(f, O_RDONLY | O_CREAT, 00700);
 	if (fd <= 0)
 	{
 		free(buf);
