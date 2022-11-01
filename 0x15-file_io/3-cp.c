@@ -57,8 +57,6 @@ void copy(int fd_from, int fd_to, char *from, char *to)
 
 	while ((readno = read(fd_from, buf, 1023)) > 0)
 	{
-		buf[readno + 1] = '\0';
-
 		writeno = write(fd_to, buf, readno);
 		if (writeno < readno)
 		{
