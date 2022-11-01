@@ -27,7 +27,7 @@ int main(int ac, char **av)
 	fd_to = open(av[2], O_WRONLY | O_TRUNC);
 	if (fd_to < 0)
 		fd_to = creat(av[2], S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
-	mask = (1 << 4) | (1 << 1);
+	mask = (1 << 1);
 	if (fd_to < 0 || (rto == 0 && (fs.st_mode & mask) == 0))
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", av[2]);
@@ -35,7 +35,7 @@ int main(int ac, char **av)
 	}
 
 	rto = stat(av[1], &fs);
-	mask = (1 << 5) | (1 << 2);
+	mask = (1 << 2);
 	if (rto == 0 && (fs.st_mode & mask) == 0)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
