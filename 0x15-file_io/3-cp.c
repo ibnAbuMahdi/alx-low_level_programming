@@ -1,5 +1,6 @@
 #include "main.h"
 #include <unistd.h>
+#include <sys/stat.h>
 #include <fcntl.h>
 #include <stddef.h>
 #include <stdio.h>
@@ -15,29 +16,32 @@
 int main(int ac, char **av)
 {
 	int fd_from, fd_to, rto;
+	struct stat fs;
 
 	if (ac != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	rto = access(av[2], W_OK);
+	rto = stat(av[2], &fs);
 	fd_to = open(av[2], O_WRONLY | O_TRUNC);
-	if (fd_to < 0 || rto < 0)
-		fd_to = creat(av[2], S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
 	if (fd_to < 0)
+		fd_to = creat(av[2], S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
+	if (fd_to < 0 || (rto == 0 && (fs.st_mode & (1 << 7)) != (1 << 7)))
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", av[2]);
 		exit(99);
 	}
 
-	fd_from = open(av[1], O_RDONLY);
-	if (fd_from < 0 || access(av[1], R_OK) < 0)
+	rto = stat(av[1], &fs);
+	if (rto == 0 && (fs.st_mode & (1 << 8)) != (1 << 8))
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
 		call_close(fd_to);
+		remove(av[2]);
 		exit(98);
 	}
+	fd_from = open(av[1], O_RDONLY);
 	copy(fd_from, fd_to, av[1], av[2]);
 	return (0);
 }
