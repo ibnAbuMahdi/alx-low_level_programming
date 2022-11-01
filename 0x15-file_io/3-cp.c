@@ -54,23 +54,14 @@ int main(int ac, char **av)
 void copy(int fd_from, int fd_to, char *from, char *to)
 {
 	char buf[1024];
-	int br = 1, i;
 	ssize_t readno, writeno;
 
-	while (br)
+	while ((readno = read(fd_from, buf, 1023)) > 0)
 	{
-		for (i = 0; i < 1023; i++)
-		{
-			readno = read(fd_from, buf, 1);
-			if (!buf[i])
-			{
-				br = 0;
-				break;
-			}
-		}
-		buf[i] = '\0';
-		writeno = write(fd_to, buf, 1023);
-		if (writeno <= 0)
+		buf[readno + 1] = '\0';
+
+		writeno = write(fd_to, buf, readno);
+		if (writeno < readno)
 		{
 			dprintf(STDERR_FILENO, "Error: can't write to file %s\n", to);
 			call_close(fd_to);
