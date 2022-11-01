@@ -13,12 +13,10 @@
 int create_file(const char *file, char *text)
 {
 	int fd;
-	char *buf;
 	size_t strlen;
 	ssize_t writeno;
 
-	buf = malloc(_strlen(text));
-	if (!buf || !file)
+	if (!file)
 		return (-1);
 	fd = open(file, O_WRONLY | O_TRUNC);
 	if (fd < 0)
