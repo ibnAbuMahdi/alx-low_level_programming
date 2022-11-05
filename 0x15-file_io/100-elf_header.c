@@ -261,7 +261,7 @@ void entry(unsigned char class, unsigned char *buf)
 		}
 
 	if (i == 0)
-		printf("%x", 0);
+		printf("%02x", 0);
 	printf("\n");
 
 }
