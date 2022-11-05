@@ -29,7 +29,7 @@ int main(int ac, char **av)
 		fd_to = creat(av[2], S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
 	if (fd_to < 0)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", av[2]);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
 		exit(99);
 	}
 
@@ -65,7 +65,7 @@ void copy(int fd_from, int fd_to, char *from, char *to)
 		writeno = write(fd_to, buf, readno);
 		if (writeno < readno)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", to);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", to);
 			call_close(fd_to);
 			call_close(fd_from);
 			exit(99);
