@@ -23,7 +23,7 @@ void abi(unsigned char);
 
 void type(unsigned char *);
 
-void entry(unsigned char, unsigned char);
+void entry(unsigned char, unsigned char *);
 
 void os_c(unsigned char);
 /**
@@ -74,7 +74,7 @@ int main(int ac, char **av)
 		print_error(msg, av[1], -1);
 		exit(98);
 	}
-	
+
 	print_elf(buf);
 	return (0);
 }
@@ -117,8 +117,9 @@ void data(unsigned char c)
 void version(unsigned char c)
 {
 	size_t i = 0;
+
 	printf("  Version:");
-	for(; i < 27; i++)
+	for (; i < 27; i++)
 		printf(" ");
 	if (c == 1)
 		printf("1 (current)\n");
@@ -149,7 +150,7 @@ int isValidFile(unsigned char *buf)
 
 void print_error(char *msg, char *file, int pos)
 {
-	char *buf;
+	char *buf = NULL;
 	int len, i;
 
 	if (msg)
@@ -208,7 +209,7 @@ void print_elf(unsigned char *buf)
 {
 	size_t i = 0;
 
-	if(!buf)
+	if (!buf)
 		return;
 	printf("ELF Header:\n  Magic:   ");
 	while (i < 15)
@@ -224,12 +225,52 @@ void print_elf(unsigned char *buf)
 	os_c(buf[7]);
 	abi(buf[8]);
 	type(buf);
-/*	entry(buf[4], buf[24]);
-*/
+	entry(buf[4], buf);
 }
 
 /**
- *
+ * entry - prints the program entry point address
+ * @class: machine class
+ * @buf: header bytes
+ */
+
+void entry(unsigned char class, unsigned char *buf)
+{
+	size_t s = 4, i = 0, j;
+
+	s *= class;
+	printf("  Entry point address:");
+	for (; i < 15; i++)
+		printf(" ");
+	i = 0;
+	printf("0x");
+	while (i < s && (buf[24 + i] != 0 || buf[24 + i + 1] != 0))
+	{
+		i++;
+	}
+	if (buf[5] == 1)
+		while (i-- > 0)
+		{
+			if (i == 0 && buf[24] == 0)
+				printf("0");
+			printf("%x", buf[24 + i]);
+		}
+	else if (buf[5] == 2 && i > 0)
+		for (j = 0; j < i; j++)
+		{
+			if (j == i - 1 && buf[24 + j] == 0)
+				printf("0");
+			printf("%x", buf[24 + j]);
+		}
+
+	if (i == 0)
+		printf("%x", 0);
+	printf("\n");
+
+}
+/**
+ * abi - prints the system ABI
+ * @c: the ABI char byte
  */
 
 void abi(unsigned char c)
@@ -243,16 +284,18 @@ void abi(unsigned char c)
 }
 
 /**
- *
+ * type - prints the file type
+ * @buf: the header bytes
  */
 
 void type(unsigned char *buf)
 {
 	size_t i = 0;
+
 	char *(msg[10]) = {"NONE (Unknown)", "REL (Relocatable file)"
 		, "EXEC (Executable file)", "DYN (Shared object file)",
 			"CORE (Core file)", "LOOS (Reserved inclusive range)",
-			"HIOS (Operating system specific)", "LOPROC (Reserved inclusive range)", 
+			"HIOS (Operating system specific)", "LOPROC (Reserved inclusive range)",
 			"HIPROC (Processor specific)"};
 
 	printf("  Type:");
@@ -260,18 +303,19 @@ void type(unsigned char *buf)
 		printf(" ");
 	if (buf[16] < 5)
 		printf("%s\n", msg[(int) buf[16]]);
-else if ((int) buf[16] == 239 && buf[17] == 0)
+	else if ((int) buf[16] == 239 && buf[17] == 0)
 		printf("%s\n", msg[5]);
 	else if ((int) buf[16] == 239 && (int) buf[17] == 255)
 		printf("%s\n", msg[6]);
 	else if ((int) buf[16] == 255 && buf[17] == 0)
 		printf("%s\n", msg[7]);
 	else if ((int) buf[16] == 255 && (int) buf[17] == 255)
-		printf("%s\n", msg[8]);			
+		printf("%s\n", msg[8]);
 }
 
 /**
- *
+ * os - prints the system OS
+ * @c: OS byte
  */
 
 void os(unsigned char c)
@@ -285,7 +329,7 @@ void os(unsigned char c)
 	switch (c)
 	{
 		case (0):
-			os_abi = "System V";
+			os_abi = "UNIX - System V";
 			break;
 		case (1):
 			os_abi = "HP-UX";
@@ -300,10 +344,10 @@ void os(unsigned char c)
 			os_abi = "GNU Hurd";
 			break;
 		case (6):
-			os_abi = "Solaris";
+			os_abi = "Oracle - Solaris";
 			break;
 		case (7):
-			os_abi = "AIX (Monterey)";
+			os_abi = "IBM - AIX";
 			break;
 		case (8):
 			os_abi = "IRIX";
@@ -312,7 +356,7 @@ void os(unsigned char c)
 			os_abi = "FreeBSD";
 			break;
 		case (10):
-			os_abi = "Tru64";
+			os_abi = "Tru64 - UNIX";
 			break;
 		case (11):
 			os_abi = "Novell Modesto";
@@ -323,7 +367,8 @@ void os(unsigned char c)
 }
 
 /**
- *
+ * os_c - continuation of os()
+ * @c: OS byte
  */
 
 void os_c(unsigned char c)
@@ -339,7 +384,7 @@ void os_c(unsigned char c)
 			os_abi = "OpenVMS";
 			break;
 		case (14):
-			os_abi = "NonStop Kernel";
+			os_abi = "NonStop";
 			break;
 		case (15):
 			os_abi = "AROS";
@@ -348,16 +393,13 @@ void os_c(unsigned char c)
 			os_abi = "FenixOS";
 			break;
 		case (17):
-			os_abi = "Nuxi CloudABI";
+			os_abi = "CloudABI";
 			break;
 		case (18):
-			os_abi = "Stratus Technologies OpenVOS";
+			os_abi = "Stratus - VOS";
 			break;
 	}
 	if (os_abi)
 		printf("%s\n", os_abi);
 
 }
-
-
-
