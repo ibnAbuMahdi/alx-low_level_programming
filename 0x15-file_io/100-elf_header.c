@@ -134,10 +134,7 @@ void version(unsigned char c)
 int isValidFile(unsigned char *buf)
 {
 	if (buf[0] != 127 || buf[1] != 69 || buf[2] != 76 || buf[3] != 70)
-	{
-		printf("%d\n", buf[0]);
 		return (0);
-	}
 	return (1);
 }
 
