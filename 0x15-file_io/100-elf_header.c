@@ -213,12 +213,12 @@ void print_elf(unsigned char *buf)
 	if (!buf)
 		return;
 	printf("ELF Header:\n  Magic:   ");
-	while (i < 16)
+	while (i < 15)
 	{
 		printf("%02x ", buf[i]);
 		i++;
 	}
-	printf("\n");
+	printf("%02x\n", buf[i]);
 	class(buf[4]);
 	data(buf[5]);
 	version(buf[6]);
