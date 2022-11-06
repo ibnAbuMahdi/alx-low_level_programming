@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <elf.h>
 #include <fcntl.h>
 #include <unistd.h>
 #include <stdlib.h>
@@ -125,7 +126,7 @@ void version(unsigned char c)
 	printf("  Version:");
 	for (; i < 27; i++)
 		printf(" ");
-	if (c == 1)
+	if (EV_CURRENT == 1 && c == 1)
 		printf("1 (current)\n");
 	else
 		printf("1\n");
@@ -318,6 +319,7 @@ void type(unsigned char *buf)
 /**
  * os - prints the system OS
  * @c: OS byte
+ * Return: 1 or 0;
  */
 
 int os(unsigned char c)
