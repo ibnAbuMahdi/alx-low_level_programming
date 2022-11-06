@@ -265,7 +265,7 @@ void entry(unsigned char class, unsigned char *buf)
 			j != 1 ? printf("%02x", buf[24 + j]) : printf("%x", buf[24 + j]);
 		}
 
-	printf("0");
+	printf("\n 0");
 
 }
 /**
