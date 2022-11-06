@@ -17,7 +17,7 @@ void data(unsigned char);
 
 void version(unsigned char);
 
-int os(unsigned char);
+void os(unsigned char);
 
 void abi(unsigned char);
 
@@ -127,8 +127,6 @@ void version(unsigned char c)
 		printf(" ");
 	if (c == 1)
 		printf("1 (current)\n");
-	else
-		printf("1\n");
 }
 
 /**
@@ -224,8 +222,8 @@ void print_elf(unsigned char *buf)
 	class(buf[4]);
 	data(buf[5]);
 	version(buf[6]);
-	if (!os(buf[7]))
-		os_c(buf[7]);
+	os(buf[7]);
+	os_c(buf[7]);
 	abi(buf[8]);
 	type(buf);
 	entry(buf[4], buf);
@@ -267,7 +265,7 @@ void entry(unsigned char class, unsigned char *buf)
 			j != 1 ? printf("%02x", buf[24 + j]) : printf("%x", buf[24 + j]);
 		}
 
-	printf("\n");
+	printf("0\n");
 
 }
 /**
@@ -320,7 +318,7 @@ void type(unsigned char *buf)
  * @c: OS byte
  */
 
-int os(unsigned char c)
+void os(unsigned char c)
 {
 	char *os_abi = NULL;
 	size_t i = 0;
@@ -365,11 +363,7 @@ int os(unsigned char c)
 			break;
 	}
 	if (os_abi)
-	{
-		printf("%s\n", os_abi);
-		return (1);
-	}
-	return (0);
+		printf("%s", os_abi);
 }
 
 /**
@@ -380,7 +374,6 @@ int os(unsigned char c)
 void os_c(unsigned char c)
 {
 	char *os_abi = NULL;
-	int i = 0;
 
 	switch (c)
 	{
@@ -408,9 +401,6 @@ void os_c(unsigned char c)
 	}
 	if (os_abi)
 		printf("%s", os_abi);
-	else
-		for (; i < 13; i++)
-			printf(" ");
 	printf("\n");
 
 }
