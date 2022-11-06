@@ -127,6 +127,8 @@ void version(unsigned char c)
 		printf(" ");
 	if (c == 1)
 		printf("1 (current)\n");
+	else
+		printf("1\n");
 }
 
 /**
@@ -374,6 +376,7 @@ void os(unsigned char c)
 void os_c(unsigned char c)
 {
 	char *os_abi = NULL;
+	int i = 0;
 
 	switch (c)
 	{
@@ -401,6 +404,9 @@ void os_c(unsigned char c)
 	}
 	if (os_abi)
 		printf("%s", os_abi);
+	else
+		for (; i < 13; i++)
+			printf(" ");
 	printf("\n");
 
 }
