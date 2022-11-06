@@ -86,9 +86,13 @@ int main(int ac, char **av)
 
 void class(unsigned char c)
 {
+	int i = 0;
 	char classes[][6] = {"ELF32", "ELF64"};
 
-	printf("  Class:\t\t\t     %s\n", classes[c - 1]);
+	printf("  Class:");
+	for (; i < 29; i++)
+		printf(" ");
+	printf("%s\n", classes[c - 1]);
 }
 
 /**
@@ -233,7 +237,7 @@ void print_elf(unsigned char *buf)
 
 void entry(unsigned char class, unsigned char *buf)
 {
-	size_t s = 4, i = 0, j;
+	int s = 4, i = 0, j;
 
 	s *= class;
 	printf("  Entry point address:");
@@ -241,28 +245,27 @@ void entry(unsigned char class, unsigned char *buf)
 		printf(" ");
 	i = 0;
 	printf("0x");
-	while (i < s && (buf[24 + i] != 0 || buf[24 + i + 1] != 0))
+	while (i < s)
 	{
 		i++;
+		if (buf[24 + i] == 0)
+			break;
 	}
+	j = i;
 	if (buf[5] == 1)
-		while (i-- > 0)
+		while (i > 0)
 		{
-			if (i == 0 && buf[24] == 0)
-				printf("0");
-			printf("%x", buf[24 + i]);
+			i--;
+			i != j - 1 ? printf("%02x", buf[24 + i])
+				: printf("%x", buf[24 + i]);
 		}
 	else if (buf[5] == 2 && i > 0)
-		for (j = 0; j < i; j++)
+		for (j = 1; j < i; j++)
 		{
-			if (j == i - 1 && buf[24 + j] == 0)
-				printf("0");
-			printf("%x", buf[24 + j]);
+			j != 1 ? printf("%02x", buf[24 + j]) : printf("%x", buf[24 + j]);
 		}
 
-	if (i == 0)
-		printf("%02x", 0);
-	printf("\n");
+	printf("0\n");
 
 }
 /**
@@ -289,7 +292,7 @@ void type(unsigned char *buf)
 {
 	size_t i = 0;
 
-	char *(msg[10]) = {"NONE (Unknown)", "REL (Relocatable file)"
+	char *(msg[10]) = {"EXEC (Executable file)", "REL (Relocatable file)"
 		, "EXEC (Executable file)", "DYN (Shared object file)",
 			"CORE (Core file)", "LOOS (Reserved inclusive range)",
 			"HIOS (Operating system specific)", "LOPROC (Reserved inclusive range)",
@@ -332,7 +335,7 @@ void os(unsigned char c)
 			os_abi = "HP-UX";
 			break;
 		case (2):
-			os_abi = "NetBSD";
+			os_abi = "UNIX - NetBSD";
 			break;
 		case (3):
 			os_abi = "Linux";
@@ -341,7 +344,7 @@ void os(unsigned char c)
 			os_abi = "GNU Hurd";
 			break;
 		case (6):
-			os_abi = "Oracle - Solaris";
+			os_abi = "UNIX - Solaris";
 			break;
 		case (7):
 			os_abi = "IBM - AIX";
@@ -360,7 +363,7 @@ void os(unsigned char c)
 			break;
 	}
 	if (os_abi)
-		printf("%s\n", os_abi);
+		printf("%s", os_abi);
 }
 
 /**
@@ -397,6 +400,7 @@ void os_c(unsigned char c)
 			break;
 	}
 	if (os_abi)
-		printf("%s\n", os_abi);
+		printf("%s", os_abi);
+	printf("\n");
 
 }
