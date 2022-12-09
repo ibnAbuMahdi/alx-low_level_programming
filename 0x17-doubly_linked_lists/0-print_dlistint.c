@@ -36,6 +36,7 @@ size_t print_dlistint(const dlistint_t *h)
 		}
 		else
 		{
+			printf("%d\n", temp->n);
 			temp = temp->next;
 			i++;
 		}
