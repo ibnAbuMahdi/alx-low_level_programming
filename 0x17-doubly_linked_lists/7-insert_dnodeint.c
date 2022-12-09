@@ -51,7 +51,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t
 			free(temp1);
 		}
 	}
-	if (!head)
+	if (!*head)
 		temp = new_node(i);
 	return (temp);
 }
