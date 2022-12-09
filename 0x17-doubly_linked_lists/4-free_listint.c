@@ -4,16 +4,31 @@
 #include <stddef.h>
 
 /**
- * free_listint - frees the linked list
+ * free_dlistint - frees the linked list
  * @h: pointer to the head node
  */
 
-void free_listint(listint_t *h)
+void free_dlistint(dlistint_t *h)
 {
+	dlistint_t *temp;
+
 	if (h)
 	{
 		if (h->next)
-			free_listint(h->next);
-		free(h);
+			while (h->next)
+			{
+				temp = h->next;
+				free(h);
+				h = temp;
+
+			}
+		else if (h->prev)
+			while (h->prev)
+			{
+				temp = h->prev;
+				free(h);
+				h = temp;
+			}
 	}
+	free(h);
 }
