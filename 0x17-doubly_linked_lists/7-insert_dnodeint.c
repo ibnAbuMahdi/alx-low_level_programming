@@ -11,7 +11,8 @@
  * Return: pointer to the found node or NULL if not found
  */
 
-dlistint_t *insert_dnodeint_at_index(dlistint_t **head, unsigned int index, int i)
+dlistint_t *insert_dnodeint_at_index(dlistin
+		t_t **head, unsigned int index, int i)
 {
 	unsigned int j = 0;
 	dlistint_t *temp = NULL;
@@ -25,14 +26,13 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **head, unsigned int index, int 
 		while (temp)
 		{
 			dlistint_t *temp1 = malloc(sizeof(dlistint_t));
-	
-			if (!temp1)
-				return (NULL);
+
 			if (index > 0 && j == index - 1)
 			{
 				temp1->n = i;
 				temp1->next = temp->next;
-				temp->next->prev = temp1;
+				if (temp->next)
+					temp->next->prev = temp1;
 				temp1->prev = temp;
 				temp->next = temp1;
 				return (temp1);
@@ -51,8 +51,29 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **head, unsigned int index, int 
 			temp = temp->next;
 			free(temp1);
 		}
+		return (new_node(*head, i));
 	}
 	return (NULL);
+}
+
+/**
+ * new_node - creates new node in empty list
+ * @head: the head node (basically empty)
+ * @i: the n value
+ * Return: address of the node
+ */
+
+dlistint_t *new_node(dlistint_t *head, int i)
+{
+	dlistint_t *temp = malloc(sizeof(dlistint_t));
+
+	if (!temp)
+		return (NULL);
+	temp->n = i;
+	temp->next = NULL;
+	temp->prev = NULL;
+	head = temp;
+	return (temp);
 }
 
 /**
