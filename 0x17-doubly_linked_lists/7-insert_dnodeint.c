@@ -31,8 +31,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t
 			{
 				temp1->n = i;
 				temp1->next = temp->next;
-				if (temp->next)
-					temp->next->prev = temp1;
+				temp->next->prev = temp1;
 				temp1->prev = temp;
 				temp->next = temp1;
 				return (temp1);
@@ -51,20 +50,19 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t
 			temp = temp->next;
 			free(temp1);
 		}
-		if (!*head)
-			return (new_node(*head, i));
 	}
-	return (NULL);
+	if (!head)
+		temp = new_node(i);
+	return (temp);
 }
 
 /**
  * new_node - creates new node in empty list
- * @head: the head node (basically empty)
  * @i: the n value
  * Return: address of the node
  */
 
-dlistint_t *new_node(dlistint_t *head, int i)
+dlistint_t *new_node(int i)
 {
 	dlistint_t *temp = malloc(sizeof(dlistint_t));
 
@@ -73,8 +71,7 @@ dlistint_t *new_node(dlistint_t *head, int i)
 	temp->n = i;
 	temp->next = NULL;
 	temp->prev = NULL;
-	head = temp;
-	return (head);
+	return (temp);
 }
 
 /**
