@@ -51,7 +51,8 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t
 			temp = temp->next;
 			free(temp1);
 		}
-		return (new_node(*head, i));
+		if (!*head)
+			return (new_node(*head, i));
 	}
 	return (NULL);
 }
