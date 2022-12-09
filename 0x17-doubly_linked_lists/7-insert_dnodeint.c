@@ -1,4 +1,5 @@
 #include "lists.h"
+#include <stdio.h>
 #include <stddef.h>
 #include <stdlib.h>
 #include <limits.h>
@@ -50,19 +51,20 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t
 			temp = temp->next;
 			free(temp1);
 		}
+		if (!temp)
+			*head = temp = new_node(*head, i);
 	}
-	if (!*head)
-		temp = new_node(i);
 	return (temp);
 }
 
 /**
  * new_node - creates new node in empty list
  * @i: the n value
+ * @head: head node
  * Return: address of the node
  */
 
-dlistint_t *new_node(int i)
+dlistint_t *new_node(dlistint_t *head, int i)
 {
 	dlistint_t *temp = malloc(sizeof(dlistint_t));
 
@@ -71,7 +73,8 @@ dlistint_t *new_node(int i)
 	temp->n = i;
 	temp->next = NULL;
 	temp->prev = NULL;
-	return (temp);
+	head = temp;
+	return (head);
 }
 
 /**
