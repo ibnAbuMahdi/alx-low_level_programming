@@ -52,7 +52,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t
 			free(temp1);
 		}
 	}
-	if (!temp)
+	if (!temp && index < 2)
 		*head = temp = new_node(*head, i);
 	return (temp);
 }
