@@ -11,8 +11,8 @@
  * Return: pointer to the found node or NULL if not found
  */
 
-dlistint_t *insert_dnodeint_at_index(dlistin
-		t_t **head, unsigned int index, int i)
+dlistint_t *insert_dnodeint_at_index(dlistint_t
+		**head, unsigned int index, int i)
 {
 	unsigned int j = 0;
 	dlistint_t *temp = NULL;
@@ -73,7 +73,7 @@ dlistint_t *new_node(dlistint_t *head, int i)
 	temp->next = NULL;
 	temp->prev = NULL;
 	head = temp;
-	return (temp);
+	return (head);
 }
 
 /**
