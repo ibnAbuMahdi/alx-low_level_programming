@@ -3,20 +3,20 @@
 #include <stdlib.h>
 
 /**
- * get_nodeint_at_index - get node at index
+ * get_dnodeint_at_index - get node at index
  * @head: pointer to the head node
  * @index: index
  * Return: pointer to the found node or NULL if not found
  */
 
-listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
+listint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
 {
 	unsigned int i = 0;
-	listint_t *temp = NULL;
+	dlistint_t *temp = NULL;
 
 	if (head)
 	{
-		temp = malloc(sizeof(listint_t));
+		temp = malloc(sizeof(dlistint_t));
 		temp = head;
 		while (temp)
 		{
