@@ -3,16 +3,16 @@
 #include <stdlib.h>
 
 /**
- * delete_nodeint_at_index - deletes node at index
+ * delete_dnodeint_at_index - deletes node at index
  * @head: pointer to the head node
  * @index: index
  * Return: 1 if successful and -1 otherwise
  */
 
-int delete_nodeint_at_index(listint_t **head, unsigned int index)
+int delete_dnodeint_at_index(listint_t **head, unsigned int index)
 {
 	unsigned int j = 0;
-	listint_t *temp = NULL;
+	dlistint_t *temp = NULL;
 
 	if (head)
 	{
@@ -22,16 +22,18 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 		{
 			if (index > 0 && j == index - 1)
 			{
-				listint_t *temp1 = NULL;
+				dlistint_t *temp1 = NULL;
 
 				temp1 = temp->next;
 				temp->next = temp->next->next;
+				temp->next->prev = temp;
 				free(temp1);
 				return (1);
 			}
 			else if (index == 0 && j == 0)
 			{
 				(*head) = temp->next;
+				(*head)->prev = NULL;
 				free(temp);
 				return (1);
 			}
