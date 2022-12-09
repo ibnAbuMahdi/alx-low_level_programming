@@ -3,17 +3,17 @@
 #include <stdlib.h>
 
 /**
- * sum_listint - get node at index
+ * sum_dlistint - get node at index
  * @head: pointer to the head node
  * Return: sum of the ns of the nodes in the list
 */
 
-int sum_listint(listint_t *head)
+int sum_dlistint(dlistint_t *head)
 {
 	int i = 0;
-	listint_t *temp = NULL;
+	dlistint_t *temp = NULL;
 
-	temp = malloc(sizeof(listint_t));
+	temp = malloc(sizeof(dlistint_t));
 	temp = head;
 	while (temp)
 	{
