@@ -62,13 +62,13 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **head, unsigned int index, int 
  * Return: pointer to the added node
  */
 
-listint_t *add_nodeint(listint_t **head, const int n)
+dlistint_t *add_nodeint(dlistint_t **head, const int n)
 {
-	listint_t *temp = NULL;
+	dlistint_t *temp = NULL;
 
 	if (head)
 	{
-		temp = malloc(sizeof(listint_t));
+		temp = malloc(sizeof(dlistint_t));
 		if (!temp)
 			return (NULL);
 		temp->next = NULL;
