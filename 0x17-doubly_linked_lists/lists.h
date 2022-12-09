@@ -32,7 +32,7 @@ void free_dlistint2(dlistint_t **);
 
 int pop_dlistint(dlistint_t **);
 
-dlistint_t *get_nodeint_at_index(dlistint_t *, unsigned int);
+dlistint_t *get_dnodeint_at_index(dlistint_t *, unsigned int);
 
 int sum_dlistint(dlistint_t *);
 
