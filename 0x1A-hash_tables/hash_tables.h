@@ -49,4 +49,9 @@ int hash_table_set(hash_table_t *, const char *, const char *);
 
 int insert_node(hash_table_t *, hash_node_t *, unsigned long int);
 
-#endif /* HASH_TABLES_H */
+char *hash_table_get(const hash_table_t *, const char *);
+
+#endif /* HASH_TABLE
+	  
+	  
+	  S_H */

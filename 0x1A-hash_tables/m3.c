@@ -21,15 +21,17 @@
 int main(void)
 
 {
-
+	unsigned long int dx;
 	    hash_table_t *ht;
 
 
 
 	        ht = hash_table_create(1024);
 
-		    hash_table_set(ht, "betty", "cool");
-
+		    hash_table_set(ht, "joyful", "cool");
+		    hash_table_set(ht, "synaphea", "drink");
+			dx = key_index((unsigned char *) "joyful", 1024);
+			printf("%s\n", ht->array[dx]->next->value);
 		        return (EXIT_SUCCESS);
 
 }
