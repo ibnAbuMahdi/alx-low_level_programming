@@ -51,6 +51,8 @@ int insert_node(hash_table_t *, hash_node_t *, unsigned long int);
 
 char *hash_table_get(const hash_table_t *, const char *);
 
+void hash_table_print(const hash_table_t *);
+
 #endif /* HASH_TABLE
 	  
 	  
