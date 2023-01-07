@@ -46,6 +46,11 @@ int main(void)
 
 						    hash_table_print(ht);
 
-						        return (EXIT_SUCCESS);
+	printf("Bob: %lu\n", key_index((const unsigned char *) "Bob", 1024));
+     printf("98: %lu\n", key_index((const unsigned char *) "98", 1024));
+	printf("c: %lu\n", key_index((const unsigned char *) "c", 1024));    
+       printf("python: %lu\n", key_index((const unsigned char *) "python", 1024));	
+       printf("Betty: %lu\n", key_index((const unsigned char *) "Betty", 1024));
+						    return (EXIT_SUCCESS);
 
 }
