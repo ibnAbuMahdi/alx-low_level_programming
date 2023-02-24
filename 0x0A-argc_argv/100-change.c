@@ -16,15 +16,15 @@ int main(int argc, char **argv)
 	/**
 	 *
 	 */
-	int num;
-	int coins[] = {25, 10, 5, 2, 1};
+	unsigned int num;
+	unsigned int coins[] = {25, 10, 5, 2, 1};
 
 	if (argc != 2)
 	{
 		printf("%s\n", "Error");
 		return (0);
 	}
-	num = atoi(argv[1]);
+	num = (unsigned int) atoi(argv[1]);
 	if (num <= 0)
 	{
 		printf("%d\n", 0);
@@ -41,13 +41,13 @@ int main(int argc, char **argv)
  * Return: number of coins
  */
 
-int mincoins(int *coins, int num)
+unsigned int mincoins(unsigned int *coins, unsigned int num)
 {
 	/**
 	 * @i:
 	 */
-	int i;
-	int *change;
+	unsigned int i;
+	unsigned int *change;
 
 	change = malloc(sizeof(int) * num + sizeof(int));
 	if (!change)
@@ -64,7 +64,7 @@ int mincoins(int *coins, int num)
 		{
 			if (coins[j] <= i)
 			{
-				int sub_res = change[i - coins[j]];
+				unsigned int sub_res = change[i - coins[j]];
 
 				if (sub_res != INT_MAX && sub_res + 1 < change[i])
 					change[i] = sub_res + 1;

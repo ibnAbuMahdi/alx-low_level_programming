@@ -22,7 +22,7 @@ int main(void)
 
 
 
-	        n = 402;
+	        n = -252;
 
 		    printf("n=%d\n", n);
 

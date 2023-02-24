@@ -1,31 +1,38 @@
-section	.text
 
-   global _start     ;must be declared for linker (ld)
-
-	
-
-_start:	            ;tells linker entry point
-
-   mov	edx,len     ;message length
-
-   mov	ecx,msg     ;message to write
-
-   mov	ebx,1       ;file descriptor (stdout)
-
-   mov	eax,4       ;system call number (sys_write)
-
-   int	0x80        ;call kernel
-
-	
-
-   mov	eax,1       ;system call number (sys_exit)
-
-   int	0x80        ;call kernel
+; World, linux x86_64, nasm syntax
 
 
 
-section	.data
+  section .rodata                 ; Begin read only data section
 
-msg db 'Hello, Holberton', 0xa  ;string to be printed
+  hello: db "Hello, World",0x0a   ; String, 0x0a is \n
 
-len equ $ - msg     ;length of the string
+  hello_len equ $-hello           ; $ is current address, length is address after string - address of start of string
+
+
+
+  section .text          ; begin code section
+
+  global _start          ; export _start so the linker can see it
+
+
+
+  _start:                ; program entry point
+
+      mov rax, 1         ; write(2) syscall number
+
+      mov rdi, 1         ; stdout
+
+      mov rsi, hello     ; string address
+
+      mov rdx, hello_len ; string length
+
+      syscall            ; execute the write syscall
+
+
+
+      mov rax, 60        ; exit(2) syscall number
+
+      mov rdi, 0         ; exit status
+
+      syscall            ; execute the exit syscall

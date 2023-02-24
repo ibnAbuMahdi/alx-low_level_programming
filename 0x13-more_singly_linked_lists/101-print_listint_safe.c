@@ -12,29 +12,22 @@
 size_t print_listint_safe(const listint_t *h)
 {
 	size_t i = 0;
-	listint_t *temp = (listint_t *) h, *nhead;
+	listint_t *slow_p = (listint_t *) h, *fast_p = (listint_t *) h;
 
-	nhead = malloc(sizeof(listint_t));
-	if (!nhead)
-		exit(98);
 	if (!h)
-	{
-		free(nhead);
 		return (0);
-	}
-	while (temp)
-	{
-		listint_t *next = temp->next;
 
-		if (temp->next == nhead)
+	while (slow_p && fast_p && fast_p->next)
+	{
+		if (fast_p->next == slow_p)
 		{
-			printf("-> [%p] %d\n", (void *)temp, temp->n);
+			printf("-> [%p] %d\n", (void *)slow_p, slow_p->n);
 			return (i);
 		}
 		i++;
-		printf("[%p] %d\n", (void *)temp, temp->n);
-		temp->next = nhead;
-		temp = next;
+		printf("[%p] %d\n", (void *)slow_p, slow_p->n);
+		slow_p = slow_p->next;
+		fast_p = fast_p->next->next;
 	}
 	return (i);
 }

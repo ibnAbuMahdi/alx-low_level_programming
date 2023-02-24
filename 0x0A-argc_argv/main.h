@@ -3,5 +3,5 @@
 
 int isnum(char *);
 
-int mincoins(int *, int);
+unsigned int mincoins(unsigned int *, unsigned int);
 #endif
