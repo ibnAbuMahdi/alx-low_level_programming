@@ -8,12 +8,8 @@ RM := rm -f
 all: $(NAME)
 $(NAME): $(OBJ)
 
-$(OBJ):relay
-
-.PHONY: relay
-
-relay: $(SRC)
-#	$(CC) $(OBJ) -o $(NAME)	
+%.o: %.c
+#	$(CC) $@ -o $(NAME)	
 
 clean:
 	$(RM) *~ school
