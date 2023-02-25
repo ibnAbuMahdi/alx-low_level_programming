@@ -33,3 +33,6 @@ void print_school(void)
 	printf("j#00000000000000w]+]++qw#00000000000000\n");
 	printf("\"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n");
 }
+/* shoool */
+/* shwqol */
+/* shol */
