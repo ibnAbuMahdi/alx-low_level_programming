@@ -12,20 +12,28 @@ def island_perimeter(grid):
     while i < height:
         j = 0
         while j < width:
-            if j-1 >= 0 and grid[i][j] == 1:
-                if grid[i][j-1] == 0:
+            if (j == 0 or j-1 >= 0) and grid[i][j] == 1:
+                if j == 0:
+                    per += 1
+                elif grid[i][j-1] == 0:
                     per += 1
 
-            if i-1 >= 0 and grid[i][j] == 1:
-                if grid[i-1][j] == 0:
+            if (i == 0 or i-1 >= 0) and grid[i][j] == 1:
+                if i == 0:
+                    per += 1
+                elif grid[i-1][j] == 0:
                     per += 1
 
-            if j+1 < width and grid[i][j] == 1:
-                if grid[i][j+1] == 0:
+            if (j == width - 1 or j+1 < width) and grid[i][j] == 1:
+                if j == width - 1:
+                    per += 1
+                elif grid[i][j+1] == 0:
                     per += 1
 
-            if i+1 < height and grid[i][j] == 1:
-                if grid[i+1][j] == 0:
+            if (i == height - 1 or i+1 < height) and grid[i][j] == 1:
+                if i == height - 1:
+                    per += 1
+                elif grid[i+1][j] == 0:
                     per += 1
             j += 1
         i += 1
