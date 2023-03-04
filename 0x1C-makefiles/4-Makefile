@@ -1,17 +1,16 @@
 SHELL=/bin/bash
-CC := gcc
-SRC := main.c school.c
-NAME := school
-OBJ := $(SRC:.c=.o)
-RM := rm -f
-CFLAGS := -Wall -Werror -Wextra -pedantic
+CC = gcc
+SRC = main.c school.c
+NAME = school
+OBJ = $(SRC:.c=.o)
+RM = rm -f
+CFLAGS = -Wall -Werror -Wextra -pedantic
 
 all: $(OBJ)
-$(OBJ):$(SRC)
-#	$(CC) $(OBJ) -o $(NAME)	
+	$(CC) $(OBJ) -o $(NAME)	
 
 clean:
-	$(RM) *~ school
+	$(RM) *~ $(NAME)
 
 oclean:
 	$(RM) $(OBJ)
