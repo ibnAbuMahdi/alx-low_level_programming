@@ -1,8 +1,8 @@
 SHELL=/bin/bash
 CC = gcc
-SRC := main.c school.c
-NAME := school
-OBJ := $(SRC:.c=.o)
+SRC = main.c school.c
+NAME = school
+OBJ = $(SRC:.c=.o)
 RM = rm -f
 
 all: $(OBJ)
