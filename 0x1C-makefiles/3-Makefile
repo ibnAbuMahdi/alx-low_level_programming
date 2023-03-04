@@ -1,5 +1,5 @@
 SHELL=/bin/bash
-CC := gcc
+CC = gcc
 SRC := main.c school.c
 NAME := school
 OBJ := $(SRC:.c=.o)
