@@ -8,9 +8,12 @@ CFLAGS = -Wall -Werror -Wextra -pedantic
 
 .PHONY: clean oclean fclean re
 
+ifeq ($(wildcard m.h),)
+all:
+else
 all: $(OBJ)
-	$(CC) $(OBJ) -o $(NAME)	
-
+	$(CC) $(OBJ) -o $(NAME)
+endif
 clean:
 	$(RM) *~ $(NAME)
 
